@@ -21,16 +21,16 @@ class Inventory {
                 nuevo.next.prev = this.ultimo;
                 this.ultimo = nuevo;
             }else {
-                let producto = this.primero;
-                while(producto.next && producto.next.codigo < nuevo.codigo) {
-                    producto = producto.next;
+                let aux = this.primero;
+                while(aux.next && aux.next.codigo < nuevo.codigo) {
+                    aux = aux.next;
                 }
-                nuevo.next = producto.next;
-                if(producto.next) {
+                nuevo.next = aux.next;
+                if(aux.next) {
                     nuevo.next.prev = nuevo;
                 }
-                producto.next = nuevo;
-                nuevo.prev = producto;
+                aux.next = nuevo;
+                nuevo.prev = aux;
             }
         }
 //ya esta pero tengo dudas
