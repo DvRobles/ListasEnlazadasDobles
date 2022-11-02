@@ -11,36 +11,49 @@ class Inventory {
             this.primero=null;
             this.ultimo=null;
         }
-// fallas en orden si comienzo de un numero mayor
         addProduct(nuevo){  
             if (this.primero==null){
                 this.primero=nuevo;
                 this.ultimo=nuevo;
-            }else if (this.primero.codigo > this.primero.codigo) {
-                this.ultimo.sig=nuevo
-                nuevo.next.prev = this.ultimo;
-                this.ultimo = nuevo;
+            }else if (nuevo.codigo < this.primero.codigo) {
+                let temp = this.primero;
+                nuevo.next = temp;
+                temp.prev = nuevo;
+                if (this.primero.next == null) {
+                    this.ultimo = this.primero;
+                }
+                this.primero = nuevo;
+                this.primero.prev = null;
             }else {
                 let aux = this.primero;
-                while(aux.next && aux.next.codigo < nuevo.codigo) {
+                while(aux != null) {
+                    if (aux.codigo > nuevo.codigo) {
+                        nuevo.next = aux;
+                        nuevo.prev = aux.prev;
+                        aux.prev.next = nuevo;
+                        aux.prev = nuevo;
+                        return true;
+                    }
                     aux = aux.next;
                 }
-                nuevo.next = aux.next;
-                if(aux.next) {
-                    nuevo.next.prev = nuevo;
+                if (this.ultimo.codigo < nuevo.codigo) {
+                    nuevo.prev = this.ultimo;
+                    nuevo.next = null;
+                    this.ultimo.next = nuevo;
+                    this.ultimo = nuevo;
+                    return true;
                 }
-                aux.next = nuevo;
-                nuevo.prev = aux;
+                return false;
             }
         }
-//ya esta pero tengo dudas
+        
         foundProduct(codigo){
             if(this.primero == null){
                 return false;
             }
             let temp = this.primero;
             while(temp != null){
-                if(temp.codigo === codigo){
+                if(temp.codigo == codigo){
                     return temp;
                 }
                 temp = temp.next;
