@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>INVENTARIO</title>
+    <link rel="stylesheet" href="bootstrap.css">
+</head>
+<body>
+    <h1 class="text-center my-5 titulo">CONTROL INVENTARIO DE PRODUCTOS</h1>
+    <div class="container mt-5 p-5">
+        <div id="contenido" class="row">
+            <div class="col-md-6 agregar-cita">
+                <form id="nuevo-producto">
+                    <legend class="mb-4">DATOS PRODUCTO</legend>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4 col-form-label">Codigo:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="number" id="codigo" name="codigo" class="form-control"  placeholder="Codigo Producto">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4 col-form-label">Nombre:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre Producto">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4 col-form-label">Cantidad:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="number" id="cantidad" name="cantidad" class="form-control" placeholder="Cantidad">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-lg-4 col-form-label">Costo:</label>
+                        <div class="col-sm-8 col-lg-8">
+                            <input type="number" id="costo" name="costo" class="form-control"  placeholder="Costo Producto">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="button" class="btn btn-outline-success w-100 d-block" id="btnAgregar">Agregar Nuevo Producto</button>
+                    <!-- </div> -->
+                </form>
+            </div>
+            <div class="form-group">
+                <legend class="mb-4">BUSQUEDA POR CODIGO</legend>
+                <div class="col-sm-8 col-lg-8">
+                    <input type="text" id="found-product" class="form-control mb-4" placeholder="Codigo Producto">
+                    <button type="button" id="eliminar" class="btn btn-outline-danger w-100 d-block">Eliminar Producto</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-lg-8">
+                    <button type="button" id="found" class="btn btn-outline-info w-100 d-block">Buscar Producto</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-lg-8">
+                    <button type="button" id="listar-invent" class="btn btn-outline-primary w-100 d-block">Listar Producto</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-8 col-lg-8">
+                    <button type="button" id="listar-inverso" class="btn btn-outline-warning w-100 d-block">Listar Inverso</button>
+                </div>
+            </div>
+        </div>
+            <div class="col-md-6">
+                <h2 id="administra" class="mb-4">INVENTARIO</h2>
+                <ul id="inventario" class="list-group lista-citas"></ul>
+            </div>
+        </div> 
+        <!-- <div class="form-group row">
+            <legend class="mb-4">INSERTAR EN POSICION</legend>
+            <div class="col-sm-8 col-lg-8">
+                <input type="number" id="posicion" name="posicion" class="form-control"  placeholder="Insertar En La Posición...">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-8 col-lg-8">
+                <button type="button" id="insertar-prod" class="btn btn-outline-dark w-100 d-block">Insertar Producto</button>
+            </div>
+        </div> -->
+    </div>
+    <script src="inventario.js"></script>
+</body>
+</html>
